@@ -568,7 +568,7 @@ However, having Defixus does not mean having the best. You should use also a Run
 | Detail                | Value          |
 | ------------------------ | --------------- |
 | Minecraft Version        | 1.21.11 (Depracated since 1.1.0), 26.1.x, 26.2, 26.3            |
-| Fabric Loader Version    |  1.18.5+ (if 1.21.11), 1.19.3+ (for 26.1.x, 26.2, 26.3)         |  |
+| Fabric Loader Version    |  0.18.5+ (if 1.21.11), 0.19.3+ (for 26.1.x and 26.2), 0.19.5+ (for 26.3) |
 | Java Version             | 21+ (if 1.21.11), 25+ (for 26.1.x, 26.2, 26.3)             |
 | Hash Algorithm           | SHA-256         |
 | Networking               | Custom Payloads Client <-> Server |
