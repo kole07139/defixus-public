@@ -517,7 +517,7 @@ Defixus moves legacy `verification/config.json`, `statistics.json`, and `players
 
 * Fabric Loader
 * Fabric API
-* Java 25
+* Java 21+ if you use Minecraft 1.21.11, Java 25+ for 26.1 onward.
 * Mod Menu
 * Cloth Config
 ## Setup
@@ -567,16 +567,16 @@ However, having Defixus does not mean having the best. You should use also a Run
 
 | Detail                | Value          |
 | ------------------------ | --------------- |
-| Minecraft Version        | 1.21.11 (Depracated), 26.1.x, 26.2, 26.3            |
-| Loader                   | Fabric          |
-| Java Version             | 25              |
+| Minecraft Version        | 1.21.11 (Depracated since 1.1.0), 26.1.x, 26.2, 26.3            |
+| Fabric Loader Version    |  1.18.5+ (if 1.21.11), 1.19.3+ (for 26.1.x, 26.2, 26.3)         |  |
+| Java Version             | 21+ (if 1.21.11), 25+ (for 26.1.x, 26.2, 26.3)             |
 | Hash Algorithm           | SHA-256         |
 | Networking               | Custom Payloads Client <-> Server |
 | Statistics               | Persistent      |
 | Discord Integration      | Webhooks Only        |
 | Resource Pack Monitoring | Real-Time       |
 
-### Minecraft version 1.21.11 will not receive any kind of support when 27.1 will come out.
+### Minecraft 1.21.11 cross-versions support is deprecated and is not planned beyond the 26.x release cycle.
 #### Defixus is designed to work with the latest versions of Minecraft and Fabric, and older versions may not be compatible or secure, as Mojang is fixing so many bugs in lastes 26.x versions, so I won't update them anymore.
 
 
