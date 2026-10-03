@@ -6,7 +6,9 @@
 
 Detect unauthorized mods • Verify file integrity • Monitor resource packs • Protect your community
 
-![Fabric](https://img.shields.io/badge/Mod_Loader-Fabric-beige)
+![Fabric](https://raw.githubusercontent.com/kole07139/defixus-public/refs/heads/images/fabric-banner.png)
+[![Kofi](https://raw.githubusercontent.com/kole07139/defixus-public/refs/heads/images/kofi-banner.png)](https://ko-fi.com/kole07139)
+[![Discord Server](https://raw.githubusercontent.com/kole07139/defixus-public/refs/heads/images/discord-banner.png)](https://discord.gg/mZxXk3fC3w)
 
 ![Minecraft](https://img.shields.io/badge/Minecraft-1.21.11_–_26.3-green)
 ![Java](https://img.shields.io/badge/Java-25-orange)
