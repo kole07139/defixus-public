@@ -1,0 +1,88 @@
+name: Bug report
+description: Report a reproducible Defixus problem.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please search existing issues first. Never include Discord webhook URLs, credentials, IP addresses, or private player data. Redact logs before attaching them.
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Minecraft version
+      placeholder: "26.3"
+    validations:
+      required: true
+  - type: input
+    id: defixus-version
+    attributes:
+      label: Defixus version/build
+      placeholder: "1.1.0-alpha.1 for Minecraft 26.3"
+    validations:
+      required: true
+  - type: input
+    id: loader-version
+    attributes:
+      label: Fabric Loader version
+      placeholder: "0.19.5"
+    validations:
+      required: true
+  - type: input
+    id: fabric-api-version
+    attributes:
+      label: Fabric API version
+      placeholder: "0.161.0+26.3"
+    validations:
+      required: true
+  - type: input
+    id: java-version
+    attributes:
+      label: Java version
+      placeholder: "25"
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Where does the issue happen?
+      options:
+        - Dedicated server
+        - Integrated server
+        - Client
+        - Client and server
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Give the smallest reliable sequence of steps.
+      placeholder: |
+        1. Configure ...
+        2. Join ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+      description: Explain what you expected and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log or crash-report excerpt
+      description: Paste a short sanitized excerpt. Remove secrets, IPs, UUIDs, and private player data.
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: mods-and-config
+    attributes:
+      label: Relevant mods and configuration
+      description: List relevant mods and describe the settings/policy involved. Redact private configuration.
+    validations:
+      required: false
