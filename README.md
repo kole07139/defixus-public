@@ -22,7 +22,7 @@ Detect unauthorized mods • Verify file integrity • Monitor resource packs �
 
 Defixus is a powerful anti-tampering and verification system for Fabric servers.
 
-### Supports Minecraft 26.x and 1.21.11 | ViaVersion/ViaFabric/Geyser/Floodgate integrated
+### Supports Minecraft 26.x and 1.21.11 | Geyser/Floodgate authentication supported
 
 
 
@@ -231,8 +231,6 @@ Useful for:
 * Unauthorized utilities
 * Prohibited resource packs
 
-It already comes with a series of known hack mods.
-
 ### Supported
 
 * Mods
@@ -360,24 +358,18 @@ Every player can have an individual security profile:
 
 ### 📡 Supported Events and Discord Webhook Alerts
 
-| Event | Unique Discord Webhook URL |
-|---|:---:|
-| ✅ Player Verified | ✅ |
-| ❌ Verification Failed | ✅ |
-| 🦶 Player Kicked | ✅ |
-| 🚫 Illegal Mod | ✅ |
-| 🧬 Modified Mod | ✅ |
-| ❓ Missing Mod | ✅ |
-| 🎨 Resource Pack Violation | ✅ |
-| 🔄 Resource Pack Changed | ✅ |
-| 🛡️ Anti-Cheat Tampering | ✅ |
-| 👑 OP Join | ✅ |
-| 🔐 OP Permission Change | ✅ |
-| 📊 Statistics Events | ✅ |
-| ⚙️ Configuration Reload | ✅ |
-| 🟢 Server Startup | ✅ |
-| 🔴 Server Shutdown | ✅ |
-| 📜 Customizable command Execution  | ✅ |
+| Event key | Notification |
+|---|---|
+| `player_join` | Successful player joins |
+| `operator_join` | Operator/moderator verification bypass |
+| `operator_change` | Operator permission grants/removals |
+| `command_dispatch` | Configured player-issued commands |
+| `player_kick` | Verification kicks |
+| `mod_warnings` | Unapproved or modified mod warnings |
+| `pack_warnings` | Unapproved or modified pack warnings |
+| `pack_changes` | Resource-pack changes |
+| `server_start` | Server startup |
+| `server_stop` | Server shutdown |
 
 
 ---
@@ -478,33 +470,19 @@ Console forwarding can include usernames, chat or command-related log details, f
 }
 ```
 
-- `config-version` is the integer schema version. Current version is `1`. Existing files without the field are interpreted as version `0` and migrated to `1` when loaded. This version does not represent the Defixus mod release version.
-- `language` is the server's default language for Defixus messages. Supported values are `en_us`, `it_it`, `es_es`, `de_de`, and `fr_fr`. Default: `en_us`. Each connected client can select a separate language for messages shown to that player. The client infact can choose in which language the messages from the server will appear from its POV, and that will override the server language. The server language is used for Discord webhook messages by the way.
-- `library-bypass` allows recognized library/dependency mod IDs without adding them to the mod whitelist. Default: `true`.
-- `block-pack-change` blocks the normal client resource-pack selection interface and ignores reported changes while enabled. Default: `false`.
-- `kick-unapproved-mods` kicks players for mods not in the mod whitelist or graylist, treating them as prohibited mods. Recognized libraries still follow `library-bypass`; graylisted mods with mismatched hashes are already rejected. Default: `false`.
-- `kick-unapproved-packs` kicks players for resource packs not in the pack whitelist or graylist, treating them as prohibited packs. This applies during join verification and when an unapproved pack is activated in-game; removing a pack does not trigger this option. Graylisted packs with mismatched hashes are already rejected. Default: `false`.
-- `unapproved-mod-warning` replaces only the mod-warning sentence shown before the unapproved mod names. If missing or blank, the built-in sentence is translated using the client's selected language.
-- `unapproved-pack-warning` replaces only the pack-warning sentence shown before the unapproved pack names. A nonblank value is shown verbatim, even if it is identical to the old default English sentence, and is never replaced by a translation selected by an individual client. Leave it blank to use the localized built-in message. This is indeed, as unapproved mod warning, a warning that is shown to the player when he has unapproved mods or packs. You can customize it to your liking, but if you leave it blank, the default message will be used and translated in the language of the client as said before.
+| Setting | Meaning |
+|---|---|
+| `config-version` | Configuration schema version, not the mod version. Do not edit manually. Missing legacy values migrate from 0 to 1. |
+| `language` | Server default for translated server messages and Discord event messages. Supported local languages: `en_us`, `it_it`, `es_es`, `de_de`, `fr_fr`. |
+| `library-bypass` | Allows recognized library/dependency mod IDs without explicit whitelist entries. |
+| `block-pack-change` | Blocks the normal resource-pack selection UI and ignores reported pack changes. |
+| `kick-unapproved-mods` | Treats mods absent from the mod whitelist and graylist as prohibited. Default false means warn instead. |
+| `kick-unapproved-packs` | Treats packs absent from the pack whitelist and graylist as prohibited. Default false means warn instead. |
+| `unapproved-mod-warning` | Optional replacement sentence preceding unapproved mod names. Blank uses the translated built-in message. |
+| `unapproved-pack-warning` | Optional replacement sentence preceding unapproved pack names. Blank uses the translated built-in message. |
 
-`mod_whitelist.json` and `mod_blacklist.json` contain mod IDs. `pack_whitelist.json` and `pack_blacklist.json` contain pack names; pack rules may end in `*` to match a prefix. Built-in whitelist entries are always included. Blacklisted entries and graylist hash mismatches are rejected; unlisted mods and packs warn by default and are rejected when their corresponding `kick-unapproved-mods` or `kick-unapproved-packs` option is enabled.
-
-Each client selects its own Defixus message language from the Defixus settings screen in Mod Menu (Cloth Config is required):
-
-```json
-{
-  "language": "en_us"
-}
-```
-
-The setting is stored in `config/Defixus-anticheat/client.json`. Available values are `en_us`, `it_it`, `es_es`, `de_de`, and `fr_fr`. It affects translated Defixus messages shown to that player only and does not change Minecraft's interface language. Nonblank server warning overrides are shown verbatim, independent of the client's language; blank warning settings use localized built-in text. The client sends its selected locale to the server as a preference for player-facing translated messages; the server does not send its own locale to the client. The server language in `verification/settings.json` is also used for Discord webhook translations.
-
+Blacklisted content and graylisted hash mismatches are rejected regardless of the two `kick-unapproved-*` switches. Whitelisted entries are accepted by identifier without a file-hash comparison. Built-in allowlist entries are also included.
 To add another language, please, open an issue and I will add it for you.
-
-## Migration
-
-Defixus moves legacy `verification/config.json`, `statistics.json`, and `players/<uuid>.json` files to the current locations without overwriting a file already present at the destination. A legacy Discord webhook config is converted to the event-based structure while preserving its URLs, event flags, and command list. The old verification settings format has no `config-version` field and is migrated from version `0` to version `1`.
-
 
 > 💾 **Always back up your configuration directory before updating, and DO NOT touch the internal versioning migration parameter "config-version".**
 
@@ -576,8 +554,10 @@ However, having Defixus does not mean having the best. You should use also a Run
 | Discord Integration      | Webhooks Only        |
 | Resource Pack Monitoring | Real-Time       |
 
-### Minecraft 1.21.11 cross-versions support is deprecated and is not planned beyond the 26.x release cycle.
+### Minecraft 1.21.11 support is deprecated and is not planned beyond the 26.x release cycle.
 #### Defixus is designed to work with the latest versions of Minecraft and Fabric, and older versions may not be compatible or secure, as Mojang is fixing so many bugs in lastes 26.x versions, so I won't update them anymore.
+
+For version-specific setup, configuration, verification limits, development, and issue-reporting guidance, see the [Defixus Wiki](https://github.com/kole07139/defixus/wiki).
 
 
 ---
