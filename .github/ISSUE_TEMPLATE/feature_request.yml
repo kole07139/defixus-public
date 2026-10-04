@@ -1,0 +1,37 @@
+name: Feature request
+description: Suggest a focused improvement to Defixus.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search existing issues first. Please describe the user problem and desired outcome; implementation details are optional.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Explain the current limitation or use case.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Desired behavior
+      description: Describe the outcome you would like and who benefits.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Include workarounds or other approaches you considered.
+    validations:
+      required: false
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Minecraft target(s), if relevant
+      placeholder: "26.3"
+    validations:
+      required: false
