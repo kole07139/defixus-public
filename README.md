@@ -6,35 +6,49 @@
 
 Detect unauthorized mods • Verify file integrity • Monitor resource packs • Protect your community
 
-![Fabric](https://raw.githubusercontent.com/kole07139/defixus-public/refs/heads/images/fabric-banner.png)
-[![Kofi](https://raw.githubusercontent.com/kole07139/defixus-public/refs/heads/images/kofi-banner.png)](https://ko-fi.com/kole07139)
-[![Discord Server](https://raw.githubusercontent.com/kole07139/defixus-public/refs/heads/images/discord-banner.png)](https://discord.gg/mZxXk3fC3w)
+![built-java25](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/built-with/java25_vector.svg)
+[![github](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg)](https://github.com/kole07139/defixus-public)
+[![modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/modrinth_vector.svg)](https://modrinth.com/mod/defixus)
+
+
+[![website](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/documentation/website_vector.svg)](https://github.com/kole07139)
+[![kofi-singular-alt](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/donate/kofi-singular-alt_vector.svg)](https://ko-fi.com/kole07139)
+[![discord-singular](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/social/discord-singular_vector.svg)](https://discord.gg/mZxXk3fC3w)
 
 ![Minecraft](https://img.shields.io/badge/Minecraft-1.21.11_–_26.3-green)
-![Java](https://img.shields.io/badge/Java-25-orange)
 ![SHA256](https://img.shields.io/badge/Integrity-SHA--256-red)
 ![Discord](https://img.shields.io/badge/Discord-Webhooks_Integration-5865F2)
 ![Statistics](https://img.shields.io/badge/Player_Statitstics-Supported-blue)
 
+
 ---
 
-### ⚡ 🔐 SHA-256 Live Verification 🔐 ⚡
+### ⚡ 🔐 SHA-256 Live Integrity Verification 🔐 ⚡
 
 Defixus is a powerful anti-tampering and verification system for Fabric servers.
 
+
 ### Supports Minecraft 26.x and 1.21.11 | Geyser/Floodgate authentication supported
 
+![yes-fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/supported/fabric_vector.svg)
+![no-forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/unsupported/forge_vector.svg)
+![no-neoforge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/unsupported/neoforge_vector.svg)
 
 
 Unlike traditional whitelist solutions, Defixus validates not only which mods are installed, but also their exact integrity through SHA-256 checksum hashing, ensuring that modified, disguised or tampered clients cannot bypass server security policies defined by Defixus.
 Built for whether large or small communities that require a control over the client environment.
+
+![fabric-api](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/requires/fabric-api_vector.svg)
+![cloth-config-api](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/requires/mod-menu_vector.svg)
+![cloth-config-api](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/requires/cloth-config-api_vector.svg)
+
+
 
 </div>
 
 ---
 
 # ✨ Features
-
 
 ## 🔍 Advanced Verification Engine & QoL Admin Tool
 
@@ -549,13 +563,14 @@ However, having Defixus does not mean having the best. You should use also a Run
 | Fabric Loader Version    |  0.18.5+ (if 1.21.11), 0.19.3+ (for 26.1.x and 26.2), 0.19.5+ (for 26.3) |
 | Java Version             | 21+ (if 1.21.11), 25+ (for 26.1.x, 26.2, 26.3)             |
 | Hash Algorithm           | SHA-256         |
-| Networking               | Custom Payloads Client <-> Server |
+| Networking               | Custom Payloads **Client ↔ Server** |
 | Statistics               | Persistent      |
 | Discord Integration      | Webhooks Only        |
 | Resource Pack Monitoring | Real-Time       |
 
-### Minecraft 1.21.11 support is deprecated and is not planned beyond the 26.x release cycle.
-#### Defixus is designed to work with the latest versions of Minecraft and Fabric, and older versions may not be compatible or secure, as Mojang is fixing so many bugs in lastes 26.x versions, so I won't update them anymore.
+**Minecraft 1.21.11 support is deprecated and is not planned beyond the Minecraft 26.x release cycle.**
+
+>Defixus is designed to work with the latest versions of Minecraft and Fabric, and older versions may not be compatible or secure, as Mojang is fixing so many bugs in lastes 26.x versions, so I won't update them anymore.
 
 For version-specific setup, configuration, verification limits, development, and issue-reporting guidance, see the [Defixus Wiki](https://github.com/kole07139/defixus/wiki).
 
