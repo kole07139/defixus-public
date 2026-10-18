@@ -1,9 +1,8 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project are documented here, following [Keep a Changelog](https://keepachangelog.com/en/1.0.0) and [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-This file is formatted as per [Keep a Changelog](https://keepachangelog.com/en/1.0.0),
-and Defixus versioning is based on [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Released sections describe their historical artifacts. The current shared-source 1.1.0-beta.1 builds are documented under Unreleased and in the wiki; their behavior must not be assumed available in older alpha builds.
 
 ## [Unreleased]
 
@@ -11,9 +10,48 @@ and Defixus versioning is based on [Semantic Versioning](https://semver.org/spec
 
 ### Changed
 
+### Fixed
+
 ### Removed
 
+## [1.1.0-beta.1] - 2026-10-18
+
+### Added
+
+- **NeoForge and Quilt support**
+- **Mustlist** preparation before world entry for required mods and active ZIP/directory packs, consented downloads, server-specific pack selection and a post-exit installer with backups and rollback attempts.
+- **Version-specific Checklist/Mustlist** mod-reference folders and target-aware multiplayer badges. Flat references, pack references and global lists remain supported.
+- **Modrinth update checker through Mod Menu for Fabric/Quilt**
+- Brazilian Portuguese and Russian message languages support.
+- **Discord Bot for a two-way console**, slash commands, explicit user/role authorization, public command transcripts and runtime log forwarding. Disabled by default. The old one-way console with Webhooks dispach is kept for admin abuse purposes for communities that wants to share the console with their community.
+- Multiplayer badges with QoL information.
+- In-game settings panel with the `defixus:panel.editor` permission with `/dp` shortcut for the new `/defixus panel` command.
+- Separate join/pack-change bypass, scan, download and statistics permissions and the brand new `/defixus download <player> mods|packs|mod|pack|unapprovedmods|unapprovedpacks` commands.
+- Paginated reports for rule lists, scans, statistics and download summaries.
+- Native `/defixusclient` language settings without optional UI mods.
+- Stonecutter source for Minecraft 1.21.11, 26.1.x (26.1, 26.1.1, 26.1.2), 26.2 and 26.3.
+- Protocol 2 release/loader/target negotiation before resource manifests, with cross-version Defixus support when Minecraft protocol translation is provided externally. Fabric/Quilt and NeoForge connections remain separate.
+- Native Quilt JSON/JSON5 and NeoForge TOML/JarJar dependency preflight, including multi-mod files and provided IDs.
+### Changed
+
+- Reverted Minecraft **1.21.11 Active Support**.
+- **Renamed Whitelist / Graylist / Blacklist to Allowlist / Checklist / Denylist**, preserving legacy permission/ping/translation/statistics identifiers and backing up migrated list files.
+- **Mod Menu and Cloth Config are just suggested as client enhancements for clients** rather than required dependencies for both server and client.
+- Replaced the former `/defixus scan mods|packs` rule-reload behavior with `/defixus scan <player> mods|packs` client inspection. `/defixus reload` remains the verification reload command.
+- Fabric loader was raised at `0.19.5+` for every Fabric/Quilt build.
+- Split server and client source sets.
+- Read the release version from shared generated build metadata and separated client/server rank-token files from resource-consent profiles.
+
 ### Fixed
+
+- Limited bold formatting in kick messages and removed repeated kick-reason presentation from webhooks titles.
+- Fixed event-webhook creation and panel persistence on Windows by closing reads before saving and using atomic UTF-8 replacement; retained legacy migrations, invalid-input backups and failed-toggle rollback.
+- Hashed nested Fabric JARs through their parent container, including canonical Defixus fingerprints on virtual archive paths; unknown/inaccessible origins remain in verification as `UNAVAILABLE` without unsupported-origin exceptions.
+- Closed statistics readers before deleting expired records and counted only successful deletions, fixing Windows startup/command cleanup.
+- Prevented duplicate kick notifications
+- Retained session statistics until disconnect/shutdown, classified verification kicks by stable error codes and tied ordinary verification callbacks/timeouts to the current connection.
+- Kept server schedulers/IO workers within the server lifecycle and explicitly rehashed changed pack ZIPs during scans.
+- Reported Fabric-registered mods, including launcher-managed/nested entries, instead of relying only on files directly inside `mods/`; unreadable origins remain reported as errors.
 
 ## [1.1.0-alpha.1] - 2026-10-03
 
@@ -108,6 +146,7 @@ and Defixus versioning is based on [Semantic Versioning](https://semver.org/spec
 
 
 [Unreleased]: https://github.com/kole07139/defixus/compare/stable/26.3/1.1.0...HEAD
+[1.1.0-beta.1]: https://github.com/kole07139/defixus/compare/26.3/1.1.0-beta.1...HEAD
 [1.1.0-alpha.1]: https://github.com/kole07139/defixus/compare/26.3/1.1.0-alpha.1...HEAD
 [1.0.5]: https://github.com/kole07139/defixus/compare/26.2/1.0.5.../26.2/1.1.0
 [1.0.4]: https://github.com/kole07139/defixus/
