@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented here, following [Keep a Changelog](https://keepachangelog.com/en/1.0.0) and [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-Released sections describe their historical artifacts. The current shared-source 1.1.0-beta.1 builds are documented under Unreleased and in the wiki; their behavior must not be assumed available in older alpha builds.
+Released sections describe their historical artifacts.
 
 ## [Unreleased]
 
