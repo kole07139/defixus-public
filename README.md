@@ -1,1 +1,1 @@
-The license applies as well for badges, which are assets under ARR Defixus propietary license.
+The license applies as well for badges, which are assets under ARR Defixus propietary license. It is mandatory to put the Defixus Badge in your modpack description: "Protected by Defixus" when using it. See license or the official Defixus Readme.
