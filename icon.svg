@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254">
+ <defs>
+  <linearGradient id="edgeLeft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff263a"/><stop offset=".52" stop-color="#e70022"/><stop offset="1" stop-color="#9f0014"/></linearGradient>
+  <linearGradient id="edgeRight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c90018"/><stop offset=".58" stop-color="#b60020"/><stop offset="1" stop-color="#ec092b"/></linearGradient>
+  <linearGradient id="faceLeft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#292a32"/><stop offset="1" stop-color="#15161e"/></linearGradient>
+  <linearGradient id="faceRight" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#13141b"/><stop offset="1" stop-color="#20212a"/></linearGradient>
+  <linearGradient id="eyeIris" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#343944"/><stop offset="1" stop-color="#070a0e"/></linearGradient>
+ </defs>
+ <!-- outer dark outline, directly echoing the Defixus shield silhouette -->
+ <path fill="#08090d" d="M624 14 C494 124 349 177 137 228 C107 407 118 649 210 837 C316 1050 454 1155 624 1240 C793 1155 938 1046 1045 832 C1130 650 1145 407 1113 228 C890 176 751 119 624 14Z"/>
+ <!-- dark-red left and right edge facets -->
+ <path fill="url(#edgeLeft)" d="M624 42 C506 137 362 191 161 249 L148 502 C171 736 321 1006 624 1210 L624 1149 C393 987 251 746 221 519 L229 309 C376 262 487 209 624 126Z"/>
+ <path fill="url(#edgeRight)" d="M624 42 C740 135 894 195 1089 249 L1102 505 C1081 748 928 1010 624 1210 L624 1149 C862 973 1000 741 1024 519 L1017 309 C863 259 742 205 624 126Z"/>
+ <!-- inner beveled lower edges -->
+ <path fill="#85000f" d="M161 249 L229 309 L222 517 C248 728 405 989 624 1149 L624 1190 C396 1038 223 794 148 502Z" opacity=".75"/>
+ <path fill="#85000f" d="M1089 249 L1017 309 L1024 519 C1000 734 860 977 624 1149 L624 1190 C872 1034 1048 785 1102 505Z" opacity=".78"/>
+ <!-- inner face -->
+ <path fill="#0a0b10" d="M624 169 L762 240 C852 268 928 283 1017 309 L1024 519 C1004 750 844 1006 624 1150 C401 1006 244 752 222 519 L229 309 C312 285 396 266 486 241Z"/>
+ <path fill="url(#faceLeft)" d="M624 195 L624 1132 C414 992 263 754 241 514 L246 326 C338 302 414 275 488 257Z"/>
+ <path fill="url(#faceRight)" d="M624 195 L760 257 C841 282 923 303 1001 326 L1007 514 C985 757 835 993 624 1132Z"/>
+ <!-- eye symbol, stylized white, with exact eye proportions -->
+ <path fill="#07090e" d="M305 623 C388 492 501 419 624 419 C749 419 864 494 950 623 C865 760 752 835 624 835 C493 835 387 761 305 623Z"/>
+ <path fill="#f8f9fa" d="M334 623 C417 510 519 451 624 451 C736 451 835 513 921 623 C835 746 732 802 624 802 C506 802 411 747 334 623Z"/>
+ <!-- subtle lower eyelid gray to tie it to white Defixus hammer -->
+ <path fill="#d5d7dc" d="M334 623 C413 730 516 786 624 786 C738 786 843 729 921 623 C836 744 733 802 624 802 C506 802 410 747 334 623Z"/>
+ <circle cx="624" cy="622" r="155" fill="#0b0e14"/>
+ <circle cx="624" cy="621" r="128" fill="url(#eyeIris)"/>
+ <circle cx="624" cy="621" r="81" fill="#080a0e"/>
+ <ellipse cx="576" cy="566" rx="35" ry="33" fill="#ffffff"/>
+ <circle cx="665" cy="670" r="13" fill="#a2a6b0" opacity=".6"/>
+</svg>
